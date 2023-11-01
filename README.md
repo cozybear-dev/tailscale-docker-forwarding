@@ -19,4 +19,3 @@ To import in your shell;
 ```
 source .env
 ```
-```
