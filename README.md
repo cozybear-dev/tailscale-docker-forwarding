@@ -5,6 +5,8 @@ home    -> server to host a socks5 proxy to tunnel traffic into the tailnet by o
 
 target  -> server that redirects all traffic to a dedicated target within its network environment.
 
+Highly advised to enable MagicDNS, so you can route using internal hostnames - instead of IP's.
+
 Somewhat strict ACL applies.
 
 .env.example has two options;
