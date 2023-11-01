@@ -1,0 +1,22 @@
+version: "3.8"
+services:
+  tailscale:
+    network_mode: host
+    container_name: tailscale
+    image: tailscale/tailscale:latest
+    volumes:
+        - "/var/lib:/var/lib"
+        - "/dev/net/tun:/dev/net/tun"
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    environment:
+      - TS_DEST_IP=${dest_ip}
+      - TS_HOSTNAME=target
+      - TS_USERSPACE=0
+      - TS_AUTHKEY=${authkey}
+    restart: unless-stopped
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
